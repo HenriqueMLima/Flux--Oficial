@@ -62,11 +62,68 @@ def cadastro():
     finally:
         cursor.close()
         conn.close()
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    if not data or 'email' not in data or 'senha' not in data:
+        return jsonify({'message': 'Email e senha são obrigatórios'}), 400
+    
+    email = data['email']
+    senha =  data['senha']
+    
+    conn = get_db_connection()
+    if conn in None:
+        return jsonify({'message': 'Erro no servidor'}), 500
+    
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT email, senha_hash FROM users WHERE email = %s", (email,))
+        user = cursor.fetchone()
+
+        if user is None:
+            return jsonify({'message': 'Email ou senha incorretos'}), 401
+
+        senha_hash = user['senha_hash']
+
+        if bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8')):
+            return jsonify({'message': 'Login realizado com sucesso'}), 200
+        else:
+            return jsonify({'message': 'Email ou senha incorretos'}), 401
+    except Error as e:
+        print(f"Erro na consulta ao banco de dados: {e}")
+        return jsonify({'message': 'Erro interno do servidor'}), 500
+    finally:
+        cursor.close()
+        conn.close()
         
-        #app.rout de login
-        
-        
-        
+@app.route('/processos', methods=['GET'])
+def listar_processos():
+    try:
+        with mysql.connector.connect(**DB_CONFIG) as conn:
+            with conn.cursor(dictionary=True) as cursor:
+                query = """
+                    SELECT 
+                        id AS numero_processo,
+                        reclamante,
+                        reclamado,
+                        assunto,
+                        status,
+                        data_julgamento
+                    FROM processos
+                """
+                cursor.execute(query)
+                resultados = cursor.fetchall()
+
+                return jsonify(resultados), 200
+
+    except Error as e:
+        return jsonify({'error': str(e)}), 500
+
+    except Exception as e:
+        return jsonify({'error': 'Ocorreu um erro inesperado: ' + str(e)}), 500
+
+
         
 if __name__ == '__main__':
     app.run(debug=True)
