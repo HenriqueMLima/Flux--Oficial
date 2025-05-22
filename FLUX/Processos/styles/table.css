@@ -1,0 +1,124 @@
+/* Table Styles */
+.table-container {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  animation: fadeIn var(--transition-normal);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--color-light-border);
+}
+
+.data-table th {
+  background-color: var(--color-white);
+  font-weight: 600;
+  color: var(--color-light-text);
+  white-space: nowrap;
+}
+
+.data-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.data-table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius-pill);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  text-align: center;
+  min-width: 100px;
+}
+
+.status-rejected {
+  background-color: rgba(245, 108, 108, 0.1);
+  color: var(--color-status-rejeitado);
+}
+
+.status-in-progress {
+  background-color: rgba(153, 102, 255, 0.1);
+  color: var(--color-status-in-progress);
+}
+
+.status-pending {
+  background-color: rgba(125, 186, 230, 0.1);
+  color: var(--color-status-pending);
+}
+
+.status-completed {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: var(--color-status-completed);
+}
+
+/* Sortable Headers */
+.sortable {
+  cursor: pointer;
+  position: relative;
+}
+
+.sortable::after {
+  content: '⇅';
+  position: absolute;
+  right: var(--spacing-sm);
+  opacity: 0.3;
+}
+
+.sortable.sort-asc::after {
+  content: '↑';
+  opacity: 0.8;
+}
+
+.sortable.sort-desc::after {
+  content: '↓';
+  opacity: 0.8;
+}
+
+/* Action Buttons */
+.actions-column {
+  text-align: center;
+  width: 80px;
+}
+
+.action-view {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary);
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.action-view:hover {
+  opacity: 1;
+}
+
+/* Date formatting */
+.date-cell {
+  display: flex;
+  align-items: center;
+}
+
+.date-cell svg {
+  margin-right: var(--spacing-sm);
+  color: var(--color-light-text);
+  opacity: 0.5;
+}

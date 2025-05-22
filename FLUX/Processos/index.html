@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Flux - Gerenciamento de Processos</title>
+
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/sidebar.css">
+  <link rel="stylesheet" href="styles/table.css">
+
+</head>
+
+<body>
+  <div class="app-container">
+    <aside class="sidebar"> <!-- sidebar -->
+      <div class="logo">
+        <img src="" alt=""> <!-- Preciso colocar os links das imagens -->
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="nav-item active"> <!-- Active porque é o icone referente a página -->
+            <div class="processos-icon">
+              <svg>
+                <!-- Preciso colocar os links das imagens -->
+              </svg>
+            </div>
+            <span>Processos</span>
+          </li>
+          <li class="nav-item">
+            <div class="gerar-item">
+              <svg>
+                <!-- Preciso colocar os links das imagens -->
+              </svg>
+            </div>
+            <span>Gerar</span>
+          </li>
+        </ul>
+      </nav>
+      <div class="sidebar--footer">
+        <div class="config-section">
+          <span class="config-label">Configurações</span>
+          <div class="config-item">
+            <svg></svg> <!-- Parte de 'Configuraçoes' da sidebar -->
+            <span>Configurações</span>
+          </div>
+        </div>
+        <div class="sidebar-actions"> <!--- Parte de Ajuda na sidebar -->
+          <div class="action-item">
+            <svg></svg> <!-- Imagem tbm -->
+            <span>Ajuda</span>
+          </div>
+          <div class="action-item">
+            <svg></svg>
+            <span>Sair</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content"> <!-- Header -->
+      <header class="header">
+        <div class="navegation-arrows">
+          <button class="nav-arrow" id="prevPage"> <!-- Botao de voltar -->
+            <svg></svg> <!-- Img -->
+          </button>
+          <button class="nav-arrow" id="nextPage">
+            <svg></svg> <!-- Img -->
+          </button>
+        </div>
+      </header>
+
+      <div class="search-container">
+        <div class="search-bar">
+          <button class="btn-icon">
+            <svg></svg>
+          </button>
+          <button class="btn-icon">
+            <svg></svg>
+          </button>
+          <button class="btn-icon">
+            <svg></svg>
+          </button>
+          <di class="search-input-container">
+            <input type="text" placeholder="Digite o numero do processo" id="search-input" />
+            <button class="btn-search">
+              <svg></svg>
+            </button>
+        </div>
+      </div>
+  </div>
+
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="sortable" data-sort="id">ID</th>
+          <th class="sortable" data-sort="reclamante">Reclamante</th>
+          <th class="sortable" data-sort="assunto">Assunto</th>
+          <th class="sortable" data-sort="reclamado">Reclamado</th>
+          <th class="sortable" data-sort="data">Data</th>
+          <th class="sortable" data-sort="status">Status</th>
+          <th class="actions-column">Ações</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <!--- JS!! -->
+      </tbody>
+    </table>
+  </div>
+  </main>
+
+  <!-- Adicionar JavaScript -->
+  </div>
+
+</body>
+
+</html
