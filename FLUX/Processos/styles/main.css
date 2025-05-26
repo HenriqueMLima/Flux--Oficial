@@ -142,7 +142,7 @@ body {
   color: var(--color-light-text);
 }
 
-
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -165,7 +165,7 @@ body {
   }
 }
 
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .app-container {
     flex-direction: column;

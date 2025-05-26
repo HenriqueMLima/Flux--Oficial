@@ -51,7 +51,7 @@
 
 .status-rejected {
   background-color: rgba(245, 108, 108, 0.1);
-  color: var(--color-status-rejeitado);
+  color: var(--color-status-rejected);
 }
 
 .status-in-progress {
@@ -111,7 +111,7 @@
   opacity: 1;
 }
 
-/* Date */
+/* Date formatting */
 .date-cell {
   display: flex;
   align-items: center;
