@@ -1,3 +1,5 @@
+/* Aumentar tabela, aumentar status, aumentar tudo! */
+
 /* Table Styles */
 .table-container {
   background-color: var(--color-white);
@@ -69,7 +71,7 @@
   color: var(--color-status-completed);
 }
 
-/* Sortable Headers */
+/* Sortable */
 .sortable {
   cursor: pointer;
   position: relative;
@@ -92,7 +94,7 @@
   opacity: 0.8;
 }
 
-/* Action Buttons */
+/* Botão de Ação */
 .actions-column {
   text-align: center;
   width: 80px;
@@ -111,7 +113,7 @@
   opacity: 1;
 }
 
-/* Date formatting */
+/* Data */
 .date-cell {
   display: flex;
   align-items: center;
