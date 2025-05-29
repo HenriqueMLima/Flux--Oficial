@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -20,11 +21,12 @@
             <h2>DADOS CADASTRAIS</h2>
         </div>
         <main>
-            <form class="formulario-cadastro">
+            <form id="formCadastro" class="formulario-cadastro">
                 <div class="campos-formulario">
                     <div class="grupo-formulario">
                         <div class="wrapper-input">
-                            <input type="text" id="nome" placeholder="NOME COMPLETO" required>
+
+                            <input type="text" id="nome_completo" placeholder="NOME COMPLETO" required>
                             <span class="marca-obrigatorio">*</span>
                         </div>
                     </div>
@@ -74,5 +76,6 @@
             </form>
         </main>
     </div>
+    <script src="cadastro.js"></script>
 </body>
 </html>

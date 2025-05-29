@@ -51,10 +51,10 @@ def cadastro():
         if cursor.fetchone() is not None:
             return jsonify({'message': 'CPF já cadastrado'}), 400
         
-        senha_hash = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt())
+        senha = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt())
         
-        cursor.execute("INSERT INTO usuarios (nome_completo, email, cpf, rg, senha_hash) VALUES (%s, %s, %s, %s, %s)",
-                       (nome_completo, email, cpf, rg, senha_hash.decode('utf-8')))
+        cursor.execute("INSERT INTO usuarios (nome_completo, email, cpf, rg, senha) VALUES (%s, %s, %s, %s, %s)",
+                       (nome_completo, email, cpf, rg, senha.decode('utf-8')))
         conn.commit()
         
         return jsonify({'message': 'Cadastro realizado com sucesso'}), 201
