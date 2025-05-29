@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('formCadastro').addEventListener('submit', async function (e) {
+    const form = document.getElementById('formCadastro');
+    const mensagem = document.getElementById('mensagemCadastro');
+
+    form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         const nome_completo = document.getElementById('nome_completo').value;
@@ -17,14 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 senha
             });
 
-            document.getElementById('mensagemCadastro').innerText = response.data.message;
-            document.getElementById('mensagemCadastro').style.color = 'green';
-            document.getElementById('formCadastro').reset();
+            window.location.href = 'http://127.0.0.1:5500/FLUX/Login/login.html'; 
 
         } catch (error) {
             const msg = error.response?.data?.message || 'Erro ao cadastrar.';
-            document.getElementById('mensagemCadastro').innerText = msg;
-            document.getElementById('mensagemCadastro').style.color = 'red';
+            mensagem.innerText = msg;
+            mensagem.style.color = 'red';
         }
     });
 });
