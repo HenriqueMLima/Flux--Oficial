@@ -52,6 +52,8 @@ body {
   color: white;
   width: 20px;
   height: 20px;
+  z-index: 2;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.8));
 }
 
 input, select {
@@ -60,9 +62,25 @@ input, select {
   background-color: transparent;
   border: 1px solid #374151;
   border-radius: 6px;
-  color: white;
+  color: white !important;
   font-size: 14px;
-  height: 45px; 
+  height: 45px;
+  -webkit-text-fill-color: white !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+  color: white !important;
+}
+
+input:-moz-autofill {
+  background-color: transparent !important;
+  color: white !important;
 }
 
 select {
@@ -76,7 +94,7 @@ select {
 }
 
 input::placeholder, select {
-  color: #9CA3AF;
+  color: #9CA3AF !important;
 }
 
 input:focus, select:focus {
@@ -121,4 +139,16 @@ option {
 
 .link-cadastro a:hover {
   text-decoration: underline;
+}
+
+input[type="email"],
+input[type="password"] {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+}
+
+.icone-input svg {
+  color: white;
+  fill: none;
+  stroke: white;
 }
