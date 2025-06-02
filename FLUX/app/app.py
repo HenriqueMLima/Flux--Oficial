@@ -70,34 +70,37 @@ def login():
     data = request.get_json()
     if not data or 'email' not in data or 'senha' not in data:
         return jsonify({'message': 'Email e senha são obrigatórios'}), 400
-    
+
     email = data['email']
-    senha =  data['senha']
-    
+    senha = data['senha']
+
     conn = get_db_connection()
-    if conn in None:
+    if conn is None:
         return jsonify({'message': 'Erro no servidor'}), 500
-    
+
     try:
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT email, senha_hash FROM users WHERE email = %s", (email,))
+
+        cursor.execute("SELECT email, senha FROM usuarios WHERE email = %s", (email,))
         user = cursor.fetchone()
 
         if user is None:
             return jsonify({'message': 'Email ou senha incorretos'}), 401
 
-        senha_hash = user['senha_hash']
+        senha_hash = user['senha']
 
         if bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8')):
             return jsonify({'message': 'Login realizado com sucesso'}), 200
         else:
             return jsonify({'message': 'Email ou senha incorretos'}), 401
+
     except Error as e:
         print(f"Erro na consulta ao banco de dados: {e}")
         return jsonify({'message': 'Erro interno do servidor'}), 500
     finally:
         cursor.close()
         conn.close()
+
         
 @app.route('/processos', methods=['GET'])
 def listar_processos():
@@ -124,6 +127,7 @@ def listar_processos():
 
     except Exception as e:
         return jsonify({'error': 'Ocorreu um erro inesperado: ' + str(e)}), 500
+    
 
 
         

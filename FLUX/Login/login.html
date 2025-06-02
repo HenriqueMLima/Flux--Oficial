@@ -13,37 +13,36 @@
         </div>
 
         <div class="container-login">
-            <div class="grupo-input">
-                <svg class="icone-input" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <input type="email" placeholder="E-MAIL">
-            </div>
+            <form id="formLogin" method="POST">
+                <div class="grupo-input">
+                    <svg class="icone-input" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <input type="email" id="email" placeholder="E-MAIL" required>
+                </div>
 
-            <div class="grupo-input">
-                <svg class="icone-input" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                </svg>
-                <input type="password" placeholder="SENHA">
-            </div>
+                <div class="grupo-input">
+                    <svg class="icone-input" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <input type="password" id="senha" placeholder="SENHA" required>
+                </div>
 
-            <div class="grupo-input">
-                <select>
-                    <option value="" disabled selected>SELECIONE</option>
-                    <option value="opcao1">Usuário comum</option>
-                    <option value="opcao2">Administrador</option>
-                </select>
-            </div>
+                <button type="submit" class="botao-entrar">ENTRAR</button>
 
-            <button class="botao-entrar">ENTRAR</button>
+                <div id="mensagemLogin" style="margin-top: 10px; color: red;"></div>
 
-            <div class="link-cadastro">
-                <span>NÃO POSSUI UMA CONTA? </span>
-                <a href="#">CLIQUE AQUI</a>
-            </div>
+                <div class="link-cadastro">
+                    <span>NÃO POSSUI UMA CONTA? </span>
+                    <a href="../Cadastro_usuario/cadastro.html">CLIQUE AQUI</a>
+                </div>
+            </form>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
