@@ -128,8 +128,40 @@ def listar_processos():
     except Exception as e:
         return jsonify({'error': 'Ocorreu um erro inesperado: ' + str(e)}), 500
     
+@app.route('/cadastrar_processo', methods=['POST']) 
+def cadastrar_processo():
+    dados = request.get_json()
 
+    campos_obrigatorios = ['reclamante', 'reclamado', 'assunto', 'status', 'descricao']
+    for campo in campos_obrigatorios:
+        if campo not in dados:
+            return jsonify({'erro': f'Campo obrigatório ausente: {campo}'}), 400
 
+    reclamante = dados['reclamante']
+    reclamado = dados['reclamado']
+    assunto = dados['assunto']
+    status = dados['status']
+    descricao = dados['descricao']
+    
+    data_criacao = dados.get('data_criacao')  
+    data_julgamento = dados.get('data_julgamento')
+    data_publicacao = dados.get('data_publicacao')
+
+    try:
+        cursor = mysql.connection.cursor()
+        cursor.execute("""
+            INSERT INTO processos (
+                reclamante, reclamado, assunto, status, descricao,
+                data_criacao, data_julgamento, data_publicacao
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        """, (reclamante, reclamado, assunto, status, descricao,
+              data_criacao, data_julgamento, data_publicacao))
+        mysql.connection.commit()
+        cursor.close()
+        return jsonify({'mensagem': 'Processo cadastrado com sucesso'}), 201
+
+    except Exception as e:
+        return jsonify({'erro': str(e)}), 500
         
 if __name__ == '__main__':
     app.run(debug=True)
