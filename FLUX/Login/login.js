@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             
-            window.location.href = 'http://127.0.0.1:5500/FLUX/processo/processo.html';
+            window.location.href = 'http://127.0.0.1:5500/FLUX/Processos/index.html';
 
         } catch (error) {
             const msg = error.response?.data?.message || 'Erro ao fazer login.';
