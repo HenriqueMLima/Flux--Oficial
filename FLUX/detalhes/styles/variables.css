@@ -1,0 +1,58 @@
+:root {
+  /* Cores*/
+  --color-primary: #9dc2eb;
+  --color-secondary: #42b983;
+  --color-accent: #f56c6c;
+  
+  --color-dark: #161A23;
+  --color-dark-lighter: #2b2b3c;
+  --color-dark-text: rgba(255, 255, 255, 0.7);
+  --color-dark-text-active: #ffffff;
+  
+  --color-light: #f5f5f5;
+  --color-light-text: #333333;
+  --color-light-border: #e0e0e0;
+  
+  --color-white: #ffffff;
+  --color-black: #000000;
+  
+  /* Status Cores */
+  --color-status-rejeitado: #f56c6c;
+  --color-status-in-progress: #000000c5;
+  --color-status-pendente: #7dbae6;
+  --color-status-completo: #ffc107;
+  
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Tipografia */
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  
+  /* "efeitos" */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-pill: 500px;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Layout */
+  --sidebar-width: 240px;
+  --header-height: 64px;
+}

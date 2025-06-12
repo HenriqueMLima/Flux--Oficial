@@ -128,6 +128,40 @@ def listar_processos():
     except Exception as e:
         return jsonify({'error': 'Ocorreu um erro inesperado: ' + str(e)}), 500
     
+@app.route('/processos/<int:processo_id>', methods=['GET'])
+def get_processo(processo_id):
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        if conn is None:
+            return jsonify({'message': 'Erro de conexão com o banco de dados'}), 500
+        
+        cursor = conn.cursor(dictionary=True)
+        
+        query = """
+            SELECT 
+                id, reclamante, reclamado, assunto, status, data_julgamento, data_publicacao, descricao
+            FROM processos 
+            WHERE id = %s
+        """
+        cursor.execute(query, (processo_id,))
+        processo = cursor.fetchone()
+        
+        if processo:
+            return jsonify(processo), 200
+        else:
+            return jsonify({'message': 'Processo não encontrado'}), 404
+
+    except Error as e:
+        print(f"Erro ao buscar processo: {e}")
+        return jsonify({'message': 'Erro interno do servidor'}), 500
+    finally:
+        if cursor:
+            cursor.close()
+        if conn and conn.is_connected():
+            conn.close()
+    
 @app.route('/cadastrar_processo', methods=['POST']) 
 def cadastrar_processo():
     dados = request.get_json()
