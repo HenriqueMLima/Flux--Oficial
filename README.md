@@ -163,3 +163,31 @@ Cada entrega foi revisada em reuniões de checkpoint semanais com a equipe.
 - **Tecnologias:** Figma, HTML, CSS, JS, Flask, MySQL  
 - **Riscos:** Monitorados e mitigados  
 - **Qualidade:** Testes manuais e validador de formulários
+
+- ---
+
+## 🧠 Conteúdo Aprendido
+- Análise de requisitos
+- Prototipação com Figma
+- Integração de tecnologias web
+- Validação de dados
+- Uso de Git/GitHub e metodologias ágeis
+- Boas práticas de segurança
+- Experiência prática de trabalho em equipe
+
+---
+
+---
+
+## ✅ Resultados Obtidos
+- Sistema funcional com login e autenticação
+- Cadastro completo de usuários e processos
+- Busca dinâmica e visualização por pop-up
+- Página de detalhes de processo protegida
+- Validações implementadas em todas as etapas
+- Sistema leve, intuitivo e acessível via navegador
+- Criação de APIs REST com Flask
+- Uso efetivo de versionamento (Git + GitHub)
+- Aplicação prática dos conceitos de segurança, controle de acesso e design responsivo
+
+---
